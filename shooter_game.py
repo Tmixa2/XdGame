@@ -6,15 +6,15 @@ init()
 mixer.init()
 game = True
 global bullets 
-scr = display.set_mode((700, 500))
-display.set_caption("xd")
+scr = display.set_mode((700, 500)) # <---- resolution
+display.set_caption("xd") # <---- caption
 
 bullets = []
 gone = 0
 victory = 0
 
 font.init()
-fnt = font.SysFont("Arial", 70)
+fnt = font.SysFont("Arial", 70) # font parameters
 win = fnt.render("congrats!", True, (255,0,0))
 los = fnt.render("you lose", True, (255,0,0))
 
@@ -29,7 +29,7 @@ def scoreboard(missed, victory):
 class gamesprites(sprite.Sprite):
     def __init__(self, x, y, img, sp):
         self.velocity = sp
-        self.player = transform.scale(image.load(img), (50, 50))
+        self.player = transform.scale(image.load(img), (50, 50)) # sprite size in pixels
         self.rect = self.player.get_rect()
         self.rect.x = x
         self.rect.y = y
@@ -41,7 +41,7 @@ class gamesprites(sprite.Sprite):
 class bullet(sprite.Sprite):
     def __init__(self, x, y, img, sp):
         self.velocity = sp
-        self.player = transform.scale(image.load(img), (15, 15))
+        self.player = transform.scale(image.load(img), (15, 15)) # size of bullet
         self.rect = self.player.get_rect()
         self.rect.x = x
         self.rect.y = y
@@ -62,11 +62,11 @@ class player(gamesprites):
     def update(self):
         keys = key.get_pressed()
         if keys[K_a] and  self.rect.x > 5:
-            self.rect.x -= self.velocity
+            self.rect.x -= self.velocity  # BORDERS CHANGE IT IF U CHANGED RESOLUTION
         if keys[K_d] and self.rect.x < 650:        
             self.rect.x += self.velocity
     def fire(self):
-        bull = bullet(self.rect.centerx, self.rect.top, "bullet.png", 1)
+        bull = bullet(self.rect.centerx, self.rect.top, "bullet.png", 1) # bullet parameters (image, speed, coordinate)
         if len(bullets) > 10: 
             pass
         else:
@@ -78,7 +78,7 @@ class asteroid_group(sprite.Sprite):
         self.img = transform.scale(image.load("asteroid.png"), (50, 50))
         self.rect = self.img.get_rect()
         self.rect.y = base_y
-        self.rect.x = randint(0, 670)
+        self.rect.x = randint(0, 670) # asteroid spawn parameter change it to your X
         self.velocity = 1
         self.miss = False
     def draw1(self):
@@ -96,7 +96,7 @@ bg = transform.scale(image.load('galaxy.jpg'), (700, 500))
 mixer.music.load("space.ogg")
 mixer.music.play()
 
-rocket = player(50, 450, "rocket.png", 5)
+rocket = player(50, 450, "rocket.png", 5) # player parameters
 
 meteors = []
 
