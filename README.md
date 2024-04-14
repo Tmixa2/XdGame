@@ -5,10 +5,16 @@ classic arcade game written on python.
 
 
 [*]Gameplay:
-Nothing suspicious, just a little game.
+
+
+-Nothing suspicious, just a little game.
 
 [*]instalation:
-copy/download every file in repo, launch .py file and "vyalua", IT WORKS!
+
+
+-copy/download every file in repo, launch .py file and "vyalua", IT WORKS!
 
 [*]customization:
-code is open source, so feel free to change any parameter in shooter_game.py 
+
+
+-code is open source, so feel free to change any parameter in shooter_game.py 
